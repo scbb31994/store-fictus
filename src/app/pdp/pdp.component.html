@@ -1,1 +1,10 @@
-<p>pdp works!</p>
+<div class="container">
+  <img src="{{ product.image }}" alt="" />
+  <div>
+    <p>{{ product.title }}</p>
+    <p>{{ product.description }}</p>
+    <p>Rating: {{ product.rating.rate }}/5</p>
+    <p>Ratings: {{ product.rating.count }}</p>
+    <button (click)="addProductToCart(product.id)">Add To Cart</button>
+  </div>
+</div>

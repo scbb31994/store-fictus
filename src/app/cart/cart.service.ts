@@ -9,5 +9,14 @@ export class CartService {
 
   addToCart(item: Product) {
     this.cart.push(item);
+    alert('Item added to cart.')
+  }
+
+  removeFromCart() {
+
+  }
+
+  getTotal() {
+    return this.cart.reduce((acc, cartItem) => acc + cartItem.price, 0);
   }
 }

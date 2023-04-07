@@ -1,1 +1,14 @@
-<p>cart-item works!</p>
+<div class="cart-item-container">
+  <div class="image-container">
+    <img class="image" [src]="cartItem.image" alt="">
+  </div>
+  <div class="details-container">
+    <div class="title-container">
+      <p>{{ cartItem.title }}</p>
+    </div>
+    <div class="price-container">
+      <p>${{cartItem.price}}</p>
+    </div>
+  </div>
+</div>
+<!-- <p>{{ cartItem.title }}</p> -->

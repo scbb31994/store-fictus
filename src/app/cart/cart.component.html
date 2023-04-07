@@ -1,1 +1,9 @@
-<app-cart-items></app-cart-items>
+<hr />
+<app-cart-item
+  *ngFor="let cartItem of cart"
+  [cartItem]="cartItem"
+></app-cart-item>
+<hr />
+<div>
+  <p class="total">Total: ${{ totalPrice }}</p>
+</div>

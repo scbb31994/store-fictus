@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { PipComponent } from './pip/pip.component';
+import { PdpComponent } from './pdp/pdp.component';
+import { CartComponent } from './cart/cart.component';
+
+const routes: Routes = [
+  { path: '', component: PipComponent },
+  { path: 'products/:id', component: PdpComponent },
+  { path: 'cart', component: CartComponent}
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

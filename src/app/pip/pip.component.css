@@ -8,4 +8,8 @@
 .item {
   flex-basis: 33.33%;
   margin-bottom: 100px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 1px 5px 3px #aaaaaa;
 }
