@@ -4,9 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { PipComponent } from './pip/pip.component';
 import { PdpComponent } from './pdp/pdp.component';
 import { CartComponent } from './cart/cart.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', component: PipComponent },
+  { path: '', redirectTo: 'products', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'products', component: PipComponent},
   { path: 'products/:id', component: PdpComponent },
   { path: 'cart', component: CartComponent}
 ];

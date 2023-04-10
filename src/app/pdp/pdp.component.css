@@ -15,7 +15,7 @@ img {
   padding-right: 15px;
 }
 
-p {
+div, span, p {
   font-family: sans-serif;
 }
 

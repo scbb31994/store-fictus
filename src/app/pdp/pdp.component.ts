@@ -11,6 +11,7 @@ import { CartService } from '../cart/cart.service';
 })
 export class PdpComponent implements OnInit {
   product: Product;
+  amount: number = 1;
 
   constructor(
     private cartService: CartService,
@@ -30,10 +31,20 @@ export class PdpComponent implements OnInit {
     this.router.navigate(['/products', `${this.product.id}`], {relativeTo: this.route})
   }
 
+  updateQuantity(operation: '-' | '+') {
+    if (operation === '-') {
+      if (this.amount !== 1) {
+        this.amount--;
+      }
+    } else {
+      this.amount++;
+    }
+  }
+
   addProductToCart(id: number) {
     const foundProduct = this.productsService.findProduct(id);
     if (foundProduct) {
-      this.cartService.addToCart(foundProduct);
+      this.cartService.addToCart(foundProduct, this.amount);
     }
   }
 
