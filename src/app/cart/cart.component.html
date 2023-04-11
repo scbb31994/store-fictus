@@ -3,7 +3,10 @@
   *ngFor="let cartItem of cart"
   [cartItem]="cartItem"
 ></app-cart-item>
+<!-- <div style="display: flex; justify-content: center;">
+  <button (click)="resetCart()">Clear Cart</button>
+</div> -->
 <hr />
 <div>
-  <p class="total">Total: ${{ totalPrice }}</p>
+  <p class="total">Total: {{ totalPrice | currency }}</p>
 </div>

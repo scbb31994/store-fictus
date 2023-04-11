@@ -1,13 +1,17 @@
 <div class="cart-item-container">
-  <div class="image-container">
-    <img class="image" [src]="cartItem.image" alt="">
+  <div class="cart-item-card">
+    <div class="cart-item-img">
+      <img class="item-img" [src]="cartItem.image" [alt]="cartItem.title" />
+    </div>
+    <div class="cart-item-title">
+      <span>{{ cartItem.title }}</span>
+      <span>{{ cartItem.price | currency }} × {{ cartItem.qty }}</span>
+    </div>
+    <div class="cart-item-price">
+      <div>{{ cartItem.totalPrice | currency }}</div>
+    </div>
   </div>
-  <div class="details-container">
-    <div class="title-container">
-      <p>{{ cartItem.title }}</p>
-    </div>
-    <div class="price-container">
-      <p>${{cartItem.price}}</p>
-    </div>
+  <div class="remove-btn-container">
+    <button>X</button>
   </div>
 </div>

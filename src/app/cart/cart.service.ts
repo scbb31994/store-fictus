@@ -1,29 +1,51 @@
 import { Product } from '../models/product.model';
 
-interface CartItem extends Product {
+export interface CartItem extends Product {
   qty: number;
+  totalPrice: number;
 }
 
 export class CartService {
   private cart: CartItem[] = [];
 
   getCart() {
-    return this.cart;
+    const cartData = localStorage.getItem('cart');
+
+    if (cartData) {
+      this.cart = JSON.parse(cartData);
+      return this.cart;
+    } 
+    return [];
   }
 
   addToCart(item: Product, qty: number) {
+    const totalPrice = item.price * qty;
     const cartItem = {
       ...item,
-      qty
+      qty,
+      totalPrice
     };
 
-    this.cart.push(cartItem);
+    const cartData = this.getCart();
+
+
+    cartData.push(cartItem);
+    localStorage.setItem('cart', JSON.stringify(cartData))
     alert(`Added ${qty} item(s) to cart.`);
   }
 
-  removeFromCart() {}
+  updateCart() {
+
+  }
+
+  resetCart() {
+    localStorage.removeItem('cart');
+    this.getCart();
+  }
+
+  removeFromCart(index: number) {}
 
   getTotal() {
-    return this.cart.reduce((acc, cartItem) => acc + cartItem.price, 0);
+    return this.cart.reduce((acc, cartItem) => acc + cartItem.totalPrice, 0);
   }
 }
