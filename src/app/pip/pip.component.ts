@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/product.model';
-import { ProductsService } from '../shared/products.service';
+import { ProductsService } from '../services/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -14,12 +14,14 @@ export class PipComponent implements OnInit {
   constructor(private productsService: ProductsService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.products = this.productsService.fetchProducts();
+    this.productsService.fetchProducts().subscribe(
+      products => {
+        this.products = products as Product[];
+      }
+    )
   }
 
   goToProduct(id: number) {
-    console.log('hit the div')
-    console.log(this.route.snapshot)
     this.router.navigate([ 'products', `${id}`])
   }
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductsService } from '../shared/products.service';
-import { CartService } from '../cart/cart.service';
+import { ProductsService } from '../services/products.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-pdp',
@@ -20,10 +20,11 @@ export class PdpComponent implements OnInit {
   ) {};
 
   ngOnInit(): void {
-    const foundProduct = this.productsService.findProduct(+this.route.snapshot.params['id']);
-    if (foundProduct) {
-      this.product = foundProduct
-    }
+    this.productsService.fetchProduct(+this.route.snapshot.params['id']).subscribe(
+      product => {
+        this.product = product as Product;
+      }
+    )
   }
 
   goToProduct() {
@@ -42,10 +43,7 @@ export class PdpComponent implements OnInit {
   }
 
   addProductToCart(id: number) {
-    const foundProduct = this.productsService.findProduct(id);
-    if (foundProduct) {
-      this.cartService.addToCart(foundProduct, this.amount);
-    }
+    this.cartService.addToCart(this.product, this.amount);
   }
 
 

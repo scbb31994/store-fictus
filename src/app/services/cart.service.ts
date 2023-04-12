@@ -1,9 +1,5 @@
 import { Product } from '../models/product.model';
-
-export interface CartItem extends Product {
-  qty: number;
-  totalPrice: number;
-}
+import { CartItem } from '../models/cart-item.model';
 
 export class CartService {
   private cart: CartItem[] = [];
