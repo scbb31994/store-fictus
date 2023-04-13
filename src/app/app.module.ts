@@ -16,6 +16,8 @@ import { CartItemComponent } from './components/pages/cart/cart-item/cart-item.c
 import { ProductsService } from './services/products.service';
 import { CartService } from './services/cart.service';
 import { LoginComponent } from './components/pages/login/login.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { LoginComponent } from './components/pages/login/login.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ProductsService, CartService],
+  providers: [ProductsService, CartService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

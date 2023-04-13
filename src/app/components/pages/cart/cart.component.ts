@@ -20,8 +20,6 @@ export class CartComponent implements OnInit, OnDestroy {
     this.totalPriceSubscription = this.cartService.totalPriceUpdated.subscribe(
       totalPrice => {
         this.totalPrice = totalPrice;
-        console.log({totalPrice})
-        console.log({thisTotalPrice: this.totalPrice})
       }
     )
 

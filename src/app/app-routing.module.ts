@@ -5,13 +5,14 @@ import { PipComponent } from './components/pages/pip/pip.component';
 import { PdpComponent } from './components/pages/pdp/pdp.component';
 import { CartComponent } from './components/pages/cart/cart.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
-  { path: 'products', component: PipComponent},
+  { path: 'products', component: PipComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
-  { path: 'products/:id', component: PdpComponent },
-  { path: 'cart', component: CartComponent}
+  { path: 'products/:id', component: PdpComponent, canActivate: [AuthGuard] },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

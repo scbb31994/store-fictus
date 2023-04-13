@@ -34,7 +34,6 @@ export class PdpComponent implements OnInit {
   }
 
   goToProduct() {
-    console.log('went to product')
     this.router.navigate(['/products', `${this.product.id}`], {relativeTo: this.route})
   }
 
