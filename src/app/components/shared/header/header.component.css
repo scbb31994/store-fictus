@@ -31,3 +31,15 @@
 .cart-text:hover {
   cursor: pointer;
 }
+
+.cart-badge {
+  position: relative;
+  background-color: white;
+  bottom: 18px;
+  right: 10px;
+  z-index: 10;
+  font-size: 13px;
+  border: 1px solid black;
+  padding: 3px 7px 3px;
+  border-radius: 25px;
+}

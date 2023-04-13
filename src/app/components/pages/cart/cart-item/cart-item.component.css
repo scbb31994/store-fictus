@@ -32,6 +32,7 @@
 .cart-item-title {
   height: 100%;
   width: 50%;
+  text-align: center;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -74,4 +75,12 @@ button:hover {
 
 button:active {
   background-color: darkred;
+}
+
+@media only screen and (max-width: 600px) {
+  .cart-item-container {
+    width: 95%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
 }

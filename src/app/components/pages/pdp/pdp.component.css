@@ -1,8 +1,12 @@
 .container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+}
+
+.details-container {
+  max-width: 400px;
 }
 
 img {
@@ -21,4 +25,10 @@ div, span, p {
 
 button {
   font-family: sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
 }

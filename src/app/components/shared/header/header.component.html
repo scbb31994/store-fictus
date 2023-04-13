@@ -4,6 +4,7 @@
   </div>
   <div class="title" (click)="goToHome()">Store Fictus</div>
   <div (click)="goToCart()" class="cart-text">
-    <i *ngIf="getLoginToken()" class="fa-solid fa-cart-shopping fa-xl"></i>
+    <i *ngIf="getLoginToken()" class="fa-solid fa-cart-shopping fa-2xl"></i>
+    <span *ngIf="cartItemsLength > 0" [style]="cartItemsLength > 9 ? 'padding: 5px 7px 5px' : ''" class="cart-badge">{{ cartItemsLength }}</span>
   </div>
 </div>

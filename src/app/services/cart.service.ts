@@ -4,6 +4,8 @@ import { Subject } from 'rxjs';
 
 export class CartService {
   private cart: CartItem[] = [];
+  cartItemsAdded = new Subject<number>();
+  
   totalPriceUpdated = new Subject<number>();
   // totalPrice: number = 0;
 
@@ -16,6 +18,7 @@ export class CartService {
       return this.cart;
     } 
     this.totalPriceUpdated.next(0);
+    this.cartItemsAdded.next(this.getCartLength());
     return [];
   }
 
@@ -30,7 +33,12 @@ export class CartService {
     this.cart.push(cartItem);
     localStorage.setItem('cart', JSON.stringify(this.cart))
     this.totalPriceUpdated.next(this.calculateTotal());
+    this.cartItemsAdded.next(this.getCartLength());
     alert(`Added ${qty} item(s) to cart.`);
+  }
+
+  getCartLength() {
+    return this.cart.reduce((acc, cartItem) => acc + cartItem.qty, 0)
   }
 
   resetCart() {
@@ -47,6 +55,7 @@ export class CartService {
       localStorage.setItem('cart', JSON.stringify(this.cart))
     }
     this.totalPriceUpdated.next(this.calculateTotal())
+    this.cartItemsAdded.next(this.getCartLength());
   }
 
   calculateTotal() {

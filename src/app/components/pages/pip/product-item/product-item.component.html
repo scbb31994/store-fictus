@@ -1,5 +1,7 @@
-<div>
+<div class="container">
   <img [src]="product.image" class="img" [alt]="product.title" />
-  <h2>{{ product.title }}</h2>
-  <p>${{ product.price }}</p>
+  <div>
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.price | currency }}</p>
+  </div>
 </div>
