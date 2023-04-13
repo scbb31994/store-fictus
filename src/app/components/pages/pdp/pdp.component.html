@@ -6,6 +6,7 @@
     <p>Rating: {{ product.rating.rate }}/5</p>
     <p>Ratings: {{ product.rating.count }}</p>
     <div>Quantity <button (click)="updateQuantity('-')">-</button> {{ amount }} <button (click)="updateQuantity('+')">+</button></div>
+    <div>{{ product.price * amount | currency }}</div>
     <div style="margin-top: 15px;">
       <button (click)="addProductToCart(product.id)">Add To Cart</button>
     </div>

@@ -22,11 +22,13 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.authService
-      .login2(this.loginForm.value.username, this.loginForm.value.password)
+      .login(this.loginForm.value.username, this.loginForm.value.password)
       .subscribe(
         (response) => {
           alert('Login Success!');
-          this.authService.login();
+          localStorage.setItem('login_token', response.token )
+          console.log(response)
+          this.authService.loginSuccess();
           this.router.navigate(['/']);
         },
         (error) => {

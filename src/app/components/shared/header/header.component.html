@@ -1,10 +1,9 @@
 <div class="heading">
-  <div style="width: 100px;"></div>
-  <div class="title" (click)="goToHome()">
-    Store Fictus
+  <div style="width: 100px;">
+    <button style="margin-left: 15%" (click)="logout()" *ngIf="getLoginToken()">Logout <i class="fa-solid fa-right-from-bracket"></i></button>
   </div>
-  <div (click)="goToCart()" class="cart-text" >
-    <i class="fa-solid fa-cart-shopping fa-xl"></i>
+  <div class="title" (click)="goToHome()">Store Fictus</div>
+  <div (click)="goToCart()" class="cart-text">
+    <i *ngIf="getLoginToken()" class="fa-solid fa-cart-shopping fa-xl"></i>
   </div>
-
 </div>

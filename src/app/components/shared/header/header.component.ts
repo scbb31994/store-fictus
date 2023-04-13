@@ -10,11 +10,24 @@ export class HeaderComponent {
 
   constructor(private router: Router) {}
 
+  getLoginToken() {
+    const doesTokenExist = localStorage.getItem('login_token');
+    if (doesTokenExist) {
+      return true;
+    }
+    return false;
+  }
+
   goToHome() {
     this.router.navigate(['/']);
   }
 
   goToCart() {
     this.router.navigate(['/cart'])
+  }
+
+  logout() {
+    this.router.navigate(['/login'])
+    localStorage.removeItem('login_token')
   }
 }

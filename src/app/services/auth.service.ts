@@ -5,17 +5,22 @@ const AUTH_ENDPOINT = 'https://fakestoreapi.com/auth/login';
 @Injectable()
 export class AuthService {
   loggedIn = false;
+  isLoggingIn = false;
 
   constructor(private http: HttpClient) {}
 
   isAuthenticated() {
     const promise: Promise<boolean> = new Promise((resolve, reject) => {
+      if (localStorage.getItem('login_token')) {
+        resolve(true)
+      }
+      
       resolve(this.loggedIn);
     });
     return promise;
   }
 
-  login() {
+  loginSuccess() {
     this.loggedIn = true;
   }
 
@@ -23,12 +28,12 @@ export class AuthService {
     this.loggedIn = false;
   }
 
-  login2(email: string, password: string) {
+  login(email: string, password: string) {
     const values = {
       username: email,
       password: password,
     };
 
-    return this.http.post(AUTH_ENDPOINT, values);
+    return this.http.post<{token: string}>(AUTH_ENDPOINT, values);
   }
 }

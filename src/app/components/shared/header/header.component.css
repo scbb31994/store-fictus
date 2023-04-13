@@ -13,6 +13,7 @@
   font-size: 42px;
   font-weight: bold;
   font-family: sans-serif;
+  text-align: center;
 }
 
 .title:hover {
@@ -29,4 +30,4 @@
 
 .cart-text:hover {
   cursor: pointer;
-} 
+}
