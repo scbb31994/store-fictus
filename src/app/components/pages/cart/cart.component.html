@@ -1,0 +1,22 @@
+<hr />
+<div *ngIf="totalPrice > 0">
+  <app-cart-item
+    *ngFor="let cartItem of cart"
+    [cartItem]="cartItem"
+  ></app-cart-item>
+</div>
+
+<div *ngIf="totalPrice === 0">
+  <h2>Your Cart is Emtpy</h2>
+  <div>
+    <button (click)="goToShop()">Shop</button>
+  </div>
+</div>
+
+<!-- <div style="display: flex; justify-content: center;">
+  <button (click)="resetCart()">Clear Cart</button>
+</div> -->
+<hr />
+<div>
+  <p class="total" *ngIf="totalPrice > 0">Total: {{ totalPrice | currency }}</p>
+</div>

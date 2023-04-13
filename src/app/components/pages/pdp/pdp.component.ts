@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../models/product.model';
+import { Product } from '../../../models/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductsService } from '../services/products.service';
-import { CartService } from '../services/cart.service';
+import { ProductsService } from '../../../services/products.service';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-pdp',
@@ -20,11 +20,17 @@ export class PdpComponent implements OnInit {
   ) {};
 
   ngOnInit(): void {
-    this.productsService.fetchProduct(+this.route.snapshot.params['id']).subscribe(
-      product => {
-        this.product = product as Product;
-      }
-    )
+    // this.productsService.fetchSingleProduct(+this.route.snapshot.params['id']).subscribe(
+    //   product => {
+    //     this.product = product as Product;
+    //   }
+    // )
+
+    const foundProduct = this.productsService.getSingleProduct(+this.route.snapshot.params['id'])
+    
+    if (foundProduct) {
+      this.product = foundProduct;
+    }
   }
 
   goToProduct() {
