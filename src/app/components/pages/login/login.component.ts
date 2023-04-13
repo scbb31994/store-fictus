@@ -6,7 +6,7 @@ import { AuthService } from '../../../services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -15,19 +15,23 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, Validators.required)
-    })
+      username: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, Validators.required),
+    });
   }
 
   onSubmit() {
-    if (this.loginForm.value.password !== 'password') {
-      alert('Incorrect Password!\nhint: password == password')
-    } else {
-      alert('Logging you in...')
-      this.authService.login();
-      this.router.navigate(['/'])
-
-    }
+    this.authService
+      .login2(this.loginForm.value.username, this.loginForm.value.password)
+      .subscribe(
+        (response) => {
+          alert('Login Success!');
+          this.authService.login();
+          this.router.navigate(['/']);
+        },
+        (error) => {
+          alert('Login Fail\nUsername = mor_2314\nPassword = 83r5^_')
+        }
+      );
   }
 }
