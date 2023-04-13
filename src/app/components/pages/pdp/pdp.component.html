@@ -1,13 +1,25 @@
 <div class="container" *ngIf="product">
   <img [src]="product.image" alt="" />
   <div>
-    <p>{{ product.title }}</p>
+    <h2>{{ product.title }}</h2>
     <p>{{ product.description }}</p>
-    <p>Rating: {{ product.rating.rate }}/5</p>
-    <p>Ratings: {{ product.rating.count }}</p>
-    <div>Quantity <button (click)="updateQuantity('-')">-</button> {{ amount }} <button (click)="updateQuantity('+')">+</button></div>
+    <!-- <p>Rating: {{ product.rating.rate }}/5</p> -->
+    <p>
+      Rating:
+      <span>
+        <i
+          class="fa-solid fa-star"
+          style="color: #dce01a"
+          *ngFor="let rating of ratingArray"
+        ></i> </span
+      > ({{ product.rating.count }})
+    </p>
+    <div>
+      Quantity <button (click)="updateQuantity('-')">-</button> {{ amount }}
+      <button (click)="updateQuantity('+')">+</button>
+    </div>
     <div>{{ product.price * amount | currency }}</div>
-    <div style="margin-top: 15px;">
+    <div style="margin-top: 15px">
       <button (click)="addProductToCart(product.id)">Add To Cart</button>
     </div>
   </div>

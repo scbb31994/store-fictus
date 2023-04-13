@@ -12,6 +12,7 @@ import { CartService } from '../../../services/cart.service';
 export class PdpComponent implements OnInit {
   product: Product;
   amount: number = 1;
+  ratingArray: number[] = []
 
   constructor(
     private cartService: CartService,
@@ -20,16 +21,12 @@ export class PdpComponent implements OnInit {
   ) {};
 
   ngOnInit(): void {
-    // this.productsService.fetchSingleProduct(+this.route.snapshot.params['id']).subscribe(
-    //   product => {
-    //     this.product = product as Product;
-    //   }
-    // )
-
     const foundProduct = this.productsService.getSingleProduct(+this.route.snapshot.params['id'])
+
     
     if (foundProduct) {
       this.product = foundProduct;
+      this.ratingArray = Array(Math.round(this.product.rating.rate)).fill(0).map((x, i) => i)
     }
   }
 

@@ -4,3 +4,11 @@
     font-weight: bold;
     font-family: sans-serif;
 }
+
+.empty-cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}

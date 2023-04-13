@@ -6,7 +6,7 @@
   ></app-cart-item>
 </div>
 
-<div *ngIf="totalPrice === 0">
+<div class="empty-cart-container" *ngIf="totalPrice === 0">
   <h2>Your Cart is Emtpy</h2>
   <div>
     <button (click)="goToShop()">Shop <i class="fa-solid fa-shop"></i></button>
