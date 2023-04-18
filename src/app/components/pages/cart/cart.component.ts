@@ -27,7 +27,10 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.totalPriceSubscription.unsubscribe()
+    // test will throw error if subscription that doesn't exist unsubs
+    if (this.totalPriceSubscription) {
+      this.totalPriceSubscription.unsubscribe()
+    }
   }
 
   resetCart() {

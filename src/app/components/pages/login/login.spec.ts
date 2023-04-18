@@ -1,13 +1,14 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { LoginComponent } from './login.component';
-import { AuthService } from 'src/app/services/auth.service';
-import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../../../services/auth.service';
+
 
 describe('LoginComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [LoginComponent],
-      imports: [HttpClientModule],
+      imports: [HttpClientTestingModule],
       providers: [AuthService]
     })
   })
