@@ -3,7 +3,7 @@ import { CartItemsComponent } from './cart-items.component';
 import { CartService } from '../../../../services/cart.service';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 
-describe('CartItemComponent', () => {
+describe('CartItemsComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       // must import all other components being used in this spec

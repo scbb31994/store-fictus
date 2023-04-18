@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { ProductItemComponent } from './product-item.component';
 
-describe('CartItemComponent', () => {
+describe('ProductItemComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       // must import all other components being used in this spec
