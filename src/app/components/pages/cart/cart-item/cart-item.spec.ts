@@ -1,6 +1,6 @@
 import { TestBed } from "@angular/core/testing";
 import { CartItemComponent } from "./cart-item.component";
-import { CartService } from "src/app/services/cart.service";
+import { CartService } from '../../../../services/cart.service';
 
 describe('CartItemComponent', () => {
   beforeEach(() => {
