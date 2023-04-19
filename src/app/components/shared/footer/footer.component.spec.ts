@@ -18,4 +18,10 @@ describe('FooterComponent', () => {
     const { app } = testSetup();
     expect(app).toBeTruthy();
   })
+
+  it('should render the footer and contain the text "footer"', () => {
+    const { fixture } = testSetup();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.getElementsByClassName('footer-text')[0].textContent).toContain('Footer');
+  })
 })
