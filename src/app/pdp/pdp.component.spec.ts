@@ -7,8 +7,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { ActivatedRoute } from '@angular/router';
 import { PdpComponent } from './pdp.component';
-import { CartService } from '../../../services/cart.service';
-import { ProductsService } from '../../../services/products.service';
+import { CartService } from '../services/cart.service';
+import { ProductsService } from '../services/products.service';
 
 describe('PdpComponent', () => {
   let productsService: ProductsService;

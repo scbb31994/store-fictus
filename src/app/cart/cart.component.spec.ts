@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { CartComponent } from './cart.component';
-import { CartService } from '../../../services/cart.service';
+import { CartService } from '../services/cart.service';
 import { Subject } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 

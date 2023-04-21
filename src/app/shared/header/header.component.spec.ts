@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { HeaderComponent } from '../header/header.component';
-import { CartService } from '../../../services/cart.service';
+import { HeaderComponent } from './header.component';
+import { CartService } from '../../services/cart.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BehaviorSubject } from 'rxjs';
