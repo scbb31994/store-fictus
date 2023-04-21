@@ -7,7 +7,7 @@ export class CartService {
   cartItemsAdded = new Subject<number>();
   
   totalPriceUpdated = new Subject<number>();
-  // totalPrice: number = 0;
+  totalPrice: number = 0;
 
   getCart() {
     const cartData = localStorage.getItem('cart');
