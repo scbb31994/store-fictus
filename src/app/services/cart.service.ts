@@ -1,5 +1,5 @@
 import { Product } from '../models/product.model';
-import { CartItem } from '../models/cart-item.model';
+import { CartItem } from '../cart/cart-item/cart-item.model';
 import { Subject } from 'rxjs';
 
 export class CartService {
