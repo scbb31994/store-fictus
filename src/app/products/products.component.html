@@ -1,0 +1,8 @@
+<div class="container">
+  <app-product-card
+    class="item"
+    *ngFor="let productElement of products"
+    (click)="goToProduct(productElement.id)"
+    [product]="productElement"
+  ></app-product-card>
+</div>

@@ -1,15 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Product } from '../products/product.model';
+import { Product } from './product.model';
 import { ProductsService } from '../services/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-pip',
-  templateUrl: './pip.component.html',
-  styleUrls: ['./pip.component.css'],
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.css'],
 })
-export class PipComponent implements OnInit, OnDestroy {
+export class ProductsComponent implements OnInit, OnDestroy {
   products: Product[] = [];
   productsSubscription: Subscription;
 
@@ -21,17 +21,16 @@ export class PipComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.productsSubscription = this.productsService.productsUpdated.subscribe(
-      products => {
+      (products) => {
         this.products = products;
       }
-    )
-    
+    );
     this.products = this.productsService.getProducts();
   }
 
   ngOnDestroy(): void {}
 
   goToProduct(id: number) {
-    this.router.navigate(['products', `${id}`]);
+    this.router.navigate([`${id}`], { relativeTo: this.route });
   }
 }

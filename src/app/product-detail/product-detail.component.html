@@ -1,5 +1,5 @@
 <div class="container" *ngIf="product">
-  <img [src]="product.image" alt="" />
+  <img [src]="product.image" [alt]="product.title" />
   <div class="details-container">
     <h2>{{ product.title }}</h2>
     <p>{{ product.description }}</p>
@@ -15,9 +15,10 @@
       ({{ product.rating.count }})
     </p>
     <div>
-      Quantity <button (click)="updateQuantity('-')">-</button> {{ amount }}
-      <button (click)="updateQuantity('+')">+</button>
+      Quantity <button (click)="updateQuantity('-')">-</button>{{ amount
+      }}<button (click)="updateQuantity('+')">+</button>
     </div>
+    <!-- <div>{{ product.price * amount | currency }}</div> -->
     <div>{{ product.price * amount | currency }}</div>
     <div style="margin-top: 15px">
       <button (click)="addProductToCart(product.id)">Add To Cart</button>

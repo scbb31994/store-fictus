@@ -13,8 +13,8 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { LoginModule } from './login/login.module';
 import { CartModule } from './cart/cart.module';
-import { PipModule } from './pip/pip.module';
-import { PdpModule } from './pdp/pdp.module';
+import { ProductsModule } from './products/products.module';
+import { ProductDetailModule } from './product-detail/product-detail.module';
 
 @NgModule({
   declarations: [
@@ -27,10 +27,12 @@ import { PdpModule } from './pdp/pdp.module';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    LoginModule,
-    CartModule,
-    PipModule,
-    PdpModule
+    // LoginModule,
+    // CartModule,
+    // PipModule,
+    // PdpModule,
+    ProductsModule,
+    ProductDetailModule
   ],
   providers: [ProductsService, CartService, AuthService, AuthGuard],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Product } from "../models/product.model";
+import { Product } from "../products/product.model";
 import { Subject } from "rxjs";
 
 const STORE_ENDPOINT = 'https://fakestoreapi.com/';

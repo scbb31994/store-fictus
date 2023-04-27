@@ -1,4 +1,4 @@
-import { Product } from '../models/product.model';
+import { Product } from '../products/product.model';
 import { CartItem } from '../cart/cart-item/cart-item.model';
 import { Subject } from 'rxjs';
 

@@ -1,4 +1,9 @@
 <div class="container">
-  <app-product-item (click)="goToProduct(productEl.id)" class="item" *ngFor="let productEl of products" [product]="productEl">
+  <app-product-item
+    (click)="goToProduct(productEl.id)"
+    class="item"
+    *ngFor="let productEl of products"
+    [product]="productEl"
+  >
   </app-product-item>
 </div>

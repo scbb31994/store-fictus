@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../models/product.model';
+import { Product } from '../products/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../services/products.service';
 import { CartService } from '../services/cart.service';
@@ -17,7 +17,8 @@ export class PdpComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private productsService: ProductsService,
-    private route: ActivatedRoute, private router: Router
+    private route: ActivatedRoute,
+    private router: Router
   ) {};
 
   ngOnInit(): void {
