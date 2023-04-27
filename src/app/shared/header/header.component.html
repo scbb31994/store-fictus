@@ -1,10 +1,17 @@
 <div class="heading">
-  <div style="width: 100px;">
-    <button style="margin-left: 15%" (click)="logout()" *ngIf="isLoggedIn">Logout <i class="fa-solid fa-right-from-bracket"></i></button>
+  <div style="width: 100px">
+    <button style="margin-left: 15%" (click)="logout()" *ngIf="isLoggedIn">
+      Logout <i class="fa-solid fa-right-from-bracket"></i>
+    </button>
   </div>
   <div class="title" (click)="goToHome()">Store Fictus</div>
   <div (click)="goToCart()" class="cart-text">
     <i *ngIf="isLoggedIn" class="fa-solid fa-cart-shopping fa-2xl"></i>
-    <span *ngIf="cartItemsLength > 0" [style]="cartItemsLength > 9 ? 'padding: 5px 7px 5px' : ''" class="cart-badge">{{ cartItemsLength }}</span>
+    <span
+      *ngIf="(cart | async)?.numOfItems!! > 0"
+      [style]="(cart | async)?.numOfItems!! > 9 ? 'padding: 5px 7px 5px' : ''"
+      class="cart-badge"
+      >{{ (cart | async)?.numOfItems }}</span
+    >
   </div>
 </div>

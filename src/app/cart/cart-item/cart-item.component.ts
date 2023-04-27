@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CartItem } from './cart-item.model';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.reducer';
+import { AppState } from '../../store/app.reducer';
 import { RemoveFromCart } from '../store/cart.actions';
 
 @Component({

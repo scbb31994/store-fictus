@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../products/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductsService } from 'src/app/services/products.service';
-import { CartService } from 'src/app/services/cart.service';
+import { ProductsService } from '../services/products.service';
+import { CartService } from '../services/cart.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/app.reducer';
 import { AddToCart } from '../cart/store/cart.actions';
@@ -57,10 +57,10 @@ export class ProductDetailComponent implements OnInit {
       qty: this.amount,
       totalPrice: this.product.price * this.amount
     }
-
-    console.log('added cart item')
-    console.log({addedCartItem});
     
-    this.store.dispatch(new AddToCart(addedCartItem))
+    this.store.dispatch(new AddToCart(addedCartItem));
+
+    alert(`Added ${this.amount} item(s) to cart.`);
+
   }
 }

@@ -13,6 +13,7 @@ export interface CartState {
   editedCartItem: CartItem | null;
   editedCartItemIndex: number;
   total: number;
+  numOfItems: number;
 }
 
 const initialState: CartState = {
@@ -20,6 +21,7 @@ const initialState: CartState = {
   editedCartItem: null,
   editedCartItemIndex: -1,
   total: 0,
+  numOfItems: 0
 };
 
 export function cartReducer(state = initialState, action: CartActions) {
@@ -29,6 +31,7 @@ export function cartReducer(state = initialState, action: CartActions) {
         ...state,
         cart: [...state.cart, action.payload],
         total: state.total + action.payload.totalPrice,
+        numOfItems: state.numOfItems + action.payload.qty
       };
     case REMOVE_FROM_CART:
       console.log('removed item');
@@ -38,6 +41,7 @@ export function cartReducer(state = initialState, action: CartActions) {
           return index !== action.payload;
         }),
         total: state.total - state.cart[action.payload].totalPrice,
+        numOfItems: state.numOfItems - state.cart[action.payload].qty
       };
     case UPDATE_CART_ITEM:
       const cartItem = state.cart[state.editedCartItemIndex];
@@ -60,6 +64,7 @@ export function cartReducer(state = initialState, action: CartActions) {
         ...state,
         cart: [],
         total: 0,
+        numOfItems: 0
       };
     default:
       return state;
