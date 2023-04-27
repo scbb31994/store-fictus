@@ -15,8 +15,8 @@
       ({{ product.rating.count }})
     </p>
     <div>
-      Quantity <button (click)="updateQuantity('-')">-</button>{{ amount
-      }}<button (click)="updateQuantity('+')">+</button>
+      Quantity <button (click)="updateQuantity('-')">-</button> {{ amount }}
+      <button (click)="updateQuantity('+')">+</button>
     </div>
     <!-- <div>{{ product.price * amount | currency }}</div> -->
     <div>{{ product.price * amount | currency }}</div>
