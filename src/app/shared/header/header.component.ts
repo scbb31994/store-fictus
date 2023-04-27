@@ -4,7 +4,7 @@ import { CartService } from '../../services/cart.service';
 import { AuthService } from '../../services/auth.service';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.reducer';
+import { AppState } from '../../store/app.reducer';
 
 @Component({
   selector: 'app-header',
