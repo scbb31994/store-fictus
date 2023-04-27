@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { CartItem } from './cart-item.model';
-import { CartService } from '../../services/cart.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.reducer';
+import { RemoveFromCart } from '../store/cart.actions';
 
 @Component({
   selector: 'app-cart-item',
@@ -9,11 +11,12 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartItemComponent {
   @Input() cartItem: CartItem;
+  @Input() cartItemIndex: number;
 
-  constructor(private cartService: CartService) {}
+  constructor(private store: Store<AppState>) {}
 
   removeFromCart() {
-    this.cartService.removeFromCart(this.cartItem.id, this.cartItem.qty) // -1 to get proper array index
+    this.store.dispatch(new RemoveFromCart(this.cartItemIndex))
   }
 
 }

@@ -15,6 +15,8 @@ import { LoginModule } from './login/login.module';
 import { CartModule } from './cart/cart.module';
 import { ProductsModule } from './products/products.module';
 import { ProductDetailModule } from './product-detail/product-detail.module';
+import { StoreModule } from '@ngrx/store';
+import { appReducer } from './store/app.reducer';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { ProductDetailModule } from './product-detail/product-detail.module';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    StoreModule.forRoot(appReducer),
     // LoginModule,
     // CartModule,
     // PipModule,

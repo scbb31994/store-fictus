@@ -3,6 +3,9 @@ import { Product } from '../products/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
 import { CartService } from 'src/app/services/cart.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../store/app.reducer';
+import { AddToCart } from '../cart/store/cart.actions';
 
 @Component({
   selector: 'app-product-detail',
@@ -18,7 +21,8 @@ export class ProductDetailComponent implements OnInit {
     private cartService: CartService,
     private productsService: ProductsService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private store: Store<AppState>
   ) {}
 
   ngOnInit() {
@@ -46,7 +50,17 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
-  addProductToCart(id: number) {
-    this.cartService.addToCart(this.product, this.amount);
+  addProductToCart() {
+    // this.cartService.addToCart(this.product, this.amount);
+    const addedCartItem = {
+      ...this.product,
+      qty: this.amount,
+      totalPrice: this.product.price * this.amount
+    }
+
+    console.log('added cart item')
+    console.log({addedCartItem});
+    
+    this.store.dispatch(new AddToCart(addedCartItem))
   }
 }

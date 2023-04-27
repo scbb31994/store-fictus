@@ -1,12 +1,16 @@
 <hr />
-<div *ngIf="totalPrice > 0">
+<div *ngIf="(cart | async)?.total!! > 0">
   <app-cart-item
-    *ngFor="let cartItem of cart"
+    *ngFor="let cartItem of (cart | async)?.cart; let i = index"
     [cartItem]="cartItem"
+    [cartItemIndex]="i"
   ></app-cart-item>
+  <div class="reset-cart-btn">
+    <button (click)="resetCart()">Clear Cart</button>
+  </div>
 </div>
 
-<div class="empty-cart-container" *ngIf="totalPrice === 0">
+<div class="empty-cart-container" *ngIf="(cart | async)?.total === 0">
   <h2>Your Cart is Emtpy</h2>
   <div>
     <button (click)="goToShop()">Shop <i class="fa-solid fa-shop"></i></button>
@@ -14,5 +18,5 @@
 </div>
 <hr />
 <div>
-  <p class="total" *ngIf="totalPrice > 0">Total: {{ totalPrice | currency }}</p>
+  <p class="total" *ngIf="(cart | async)?.total!! > 0">Total: {{ (cart | async)?.total | currency }}</p>
 </div>
