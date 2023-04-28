@@ -1,7 +1,6 @@
 import { Action } from '@ngrx/store';
 import { CartItem } from '../../cart/cart-item/cart-item.model';
 
-export const GET_CART = 'GET_CART';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 export const UPDATE_CART_ITEM = 'UPDATE_CART_ITEM';
