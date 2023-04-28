@@ -1,7 +1,6 @@
 import { CartItem } from '../cart-item/cart-item.model';
 import {
   CartActions,
-  GET_CART,
   ADD_TO_CART,
   REMOVE_FROM_CART,
   UPDATE_CART_ITEM,
