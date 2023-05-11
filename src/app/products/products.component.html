@@ -1,8 +1,8 @@
 <div class="container">
   <app-product-card
     class="item"
-    *ngFor="let productElement of products"
-    (click)="goToProduct(productElement.id)"
-    [product]="productElement"
+    *ngFor="let product of products"
+    (click)="goToProduct(product.id)"
+    [product]="product"
   ></app-product-card>
 </div>

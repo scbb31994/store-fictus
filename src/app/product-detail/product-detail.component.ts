@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../products/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductsService } from '../services/products.service';
 import { CartService } from '../services/cart.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/app.reducer';
@@ -19,23 +18,22 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private productsService: ProductsService,
     private route: ActivatedRoute,
     private router: Router,
     private store: Store<AppState>
   ) {}
 
   ngOnInit() {
-    const foundProduct = this.productsService.getSingleProduct(
-      +this.route.snapshot.params['id']
-    );
+    // const foundProduct = this.productsService.getSingleProduct(
+    //   +this.route.snapshot.params['id']
+    // );
 
-    if (foundProduct) {
-      this.product = foundProduct;
-      this.ratingArray = Array(Math.round(this.product.rating.rate))
-        .fill(0)
-        .map((x, i) => i);
-    }
+    // if (foundProduct) {
+    //   this.product = foundProduct;
+    //   this.ratingArray = Array(Math.round(this.product.rating.rate))
+    //     .fill(0)
+    //     .map((x, i) => i);
+    // }
   }
 
   goToProduct() {

@@ -7,15 +7,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { ProductsService } from './services/products.service';
 import { CartService } from './services/cart.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
-import { LoginModule } from './login/login.module';
-import { CartModule } from './cart/cart.module';
+// import { LoginModule } from './login/login.module';
+// import { CartModule } from './cart/cart.module';
 import { ProductsModule } from './products/products.module';
 import { ProductDetailModule } from './product-detail/product-detail.module';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductsEffects } from './products/store/products.effects';
 import { appReducer } from './store/app.reducer';
 
 @NgModule({
@@ -30,6 +31,7 @@ import { appReducer } from './store/app.reducer';
     AppRoutingModule,
     ReactiveFormsModule,
     StoreModule.forRoot(appReducer),
+    EffectsModule.forRoot([ProductsEffects]),
     // LoginModule,
     // CartModule,
     // PipModule,
@@ -37,7 +39,7 @@ import { appReducer } from './store/app.reducer';
     ProductsModule,
     ProductDetailModule
   ],
-  providers: [ProductsService, CartService, AuthService, AuthGuard],
+  providers: [CartService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

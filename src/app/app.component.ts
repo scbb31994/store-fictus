@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from './services/products.service';
+import { Store } from '@ngrx/store';
 import { AuthService } from './services/auth.service';
+import { AppState } from './store/app.reducer';
+import { FetchProducts } from './products/store/products.actions';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +11,10 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'store-fictus';
-  constructor(private productsService: ProductsService, private authService: AuthService) {}
+  constructor(private store: Store<AppState>, private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.productsService.fetchProducts();
+    this.store.dispatch(new FetchProducts());
     this.authService.autoLogin();
   }
 }
